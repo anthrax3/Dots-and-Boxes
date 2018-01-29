@@ -1,22 +1,22 @@
 render_points:
-        xor ax, ax
-        mov byte al, [horizontal_current_option]
-        dec ax
+        xor ax, ax					; Erase AX register
+        mov byte al, [horizontal_current_option]	; Put number of colums in AX
+        dec ax						; Decrease AX, because we wanna know how much spaces are between them
 
 
-        mov bx, 5
-        mul bl
-        mov bx, ax
-        mov ax, 159
-        sub ax, bx
+        mov bx, 5					; We want 4 pixels between two dots
+        mul bl						; Get total width
+        mov bx, ax					; Put width in BX, we will use AX
+        mov ax, 159					; 
+        sub ax, bx					;
 
 
-        push ax
+        push ax						; Put it in the stack. We are gonna use it later
 
 
-        xor ax, ax
-        mov byte al, [vertical_current_option]
-        dec ax
+        xor ax, ax					; Clear AX
+        mov byte al, [vertical_current_option]		; Put number of lines in AX
+        dec ax						; We want the number of spaces in between
 
 
         mov bx, 5
